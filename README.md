@@ -29,7 +29,7 @@
 <p>• HTML：用于构建页面结构。</p>
 <p>• CSS：用于样式设计，包括背景图片的平铺、菜单的样式、状态栏的动画等。</p>
 <p>• JavaScript：用于实现交互功能，包括背景图片的动态移动、用户控制、状态提示等。</p>
-<h2>8.使用用户可以通过</h2>
+<h2>8.调用用户可以通过</h2>
 <p><style>
         }
         iframe {
@@ -42,4 +42,4 @@
             border: none;
         }
 </style>
-和    <iframe src="z.html"></iframe></p>
+和    <iframe src="http://laxx.tttttttttt.top/project/000001"></iframe></p>
