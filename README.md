@@ -1,5 +1,5 @@
 <h1>以下是项目的功能总结：</h1>
-0.<a href="http://laxx.tttttttttt.top/project/000001">戳这访问</a>
+0.<a href="http://laxx.tttttttttt.top/project/000001">戳这访问(不是安全协议)</a>
 <h2>1.背景图片的无限平铺</h2>
 <p>• 背景图片会无限平铺以适应整个屏幕，确保背景始终填充整个视口，不会出现空白区域。</p>
 <h2>2.背景图片的动态移动</h2>
