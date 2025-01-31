@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>循环背景图片</title>
+    <link rel="stylesheet" href="ss.css">
+</head>
+<body>
+    <div id="background"></div>
+    <div id="menu">
+        <button onclick="setDirection(-1, -1)" class="direction-btn">左上</button>
+        <button onclick="setDirection(0, -1)" class="direction-btn">上</button>
+        <button onclick="setDirection(1, -1)" class="direction-btn">右上</button>
+        <button onclick="setDirection(-1, 0)" class="direction-btn">左</button>
+        <button onclick="setDirection(0, 0)" class="direction-btn">停</button>
+        <button onclick="setDirection(1, 0)" class="direction-btn">右</button>
+        <button onclick="setDirection(-1, 1)" class="direction-btn">左下</button>
+        <button onclick="setDirection(0, 1)" class="direction-btn">下</button>
+        <button onclick="setDirection(1, 1)" class="direction-btn">右下</button>
+        <br>
+        <label>速度: <input type="range" id="speed" min="0" max="30" value="1" step="0.1"></label>
+        <label>速度: <input type="number" id="speedInput" min="0" max="30" value="1" step="0.1"></label>
+        <br>
+        <button onclick="randomMove()">随机移动</button>
+        <button onclick="cancelMove()">取消</button>
+        <br>
+        <label>上传自定义图片: <input type="file" id="customImage" accept="image/*"></label>
+        <br>
+        <button onclick="openTextureLibrary()">在线选择图片</button>
+        <div id="textureLibrary" style="display: none;">
+            <iframe src="https://www.textures.com/" width="600" height="400" frameborder="0"></iframe>
+            <input type="text" id="imageUrl" placeholder="输入图片URL">
+            <button onclick="setCustomImageUrl()">应用图片</button>
+        </div>
+        <div id="status" style="font-size: 12px; color: #666; margin-top: 10px;">
+            当前方向: <span id="currentDirection">停</span> | 当前速度: <span id="currentSpeed">1</span>
+        </div>
+    </div>
+    <script src="st.js"></script>
+</body>
+</html>
