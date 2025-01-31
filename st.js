@@ -7,6 +7,7 @@ let speed = 1; // 默认速度
 let randomDirection = { x: 0, y: 0 }; // 随机移动方向
 let isRandomMove = false; // 是否处于随机移动模式
 let isMoving = false; // 是否正在移动
+let scale = 1; // 默认缩放比例
 
 // 获取提示框
 const status = document.getElementById('status');
@@ -91,6 +92,7 @@ function moveBackground() {
         y += userDirection.y * speed;
     }
     background.style.backgroundPosition = `${-x}px ${-y}px`;
+    background.style.backgroundSize = `${scale * 100}%`; // 动态调整背景图片的缩放比例
     requestAnimationFrame(moveBackground);
 }
 
@@ -166,8 +168,9 @@ document.getElementById('customImage').addEventListener('change', (event) => {
         reader.onload = (e) => {
             const imageUrl = e.target.result;
             background.style.backgroundImage = `url(${imageUrl})`;
-            background.style.backgroundSize = 'auto'; // 自动适应
-            background.style.backgroundRepeat = 'repeat'; // 无限平铺
+            background.style.backgroundSize = `${scale * 100}%`; // 设置初始缩放比例
+            background.style.backgroundRepeat = 'no-repeat'; // 避免平铺
+            background.style.backgroundPosition = 'center'; // 居中显示
         };
         reader.readAsDataURL(file);
     }
@@ -177,8 +180,9 @@ document.getElementById('customImage').addEventListener('change', (event) => {
 function setCustomImageUrl() {
     const imageUrl = document.getElementById('imageUrl').value;
     background.style.backgroundImage = `url(${imageUrl})`;
-    background.style.backgroundSize = 'auto'; // 自动适应
-    background.style.backgroundRepeat = 'repeat'; // 无限平铺
+    background.style.backgroundSize = `${scale * 100}%`; // 设置初始缩放比例
+    background.style.backgroundRepeat = 'no-repeat'; // 避免平铺
+    background.style.backgroundPosition = 'center'; // 居中显示
 }
 
 // 打开在线图片库
@@ -187,10 +191,11 @@ function openTextureLibrary() {
     textureLibrary.style.display = textureLibrary.style.display === 'none' ? 'block' : 'none';
 }
 
-// 页面加载时自动开始随机移动
-window.onload = () => {
-    randomMove();
-};
+// 添加缩放功能
+document.getElementById('scale').addEventListener('input', (e) => {
+    scale = parseFloat(e.target.value);
+    background.style.backgroundSize = `${scale * 100}%`; // 动态调整背景图片的缩放比例
+});
 
 // 启动自动移动
 moveBackground();
